@@ -1,4 +1,5 @@
 package config;
+import io.qameta.allure.Allure;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -6,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class WebDriverFactory {
     public static WebDriver getDriver() {
         String browser = System.getProperty("browser", "chrome");
+        Allure.parameter("Browser", browser);
         switch (browser.toLowerCase()) {
             case "yandex":
                 String driverPath = System.getProperty("yandex.driver", "src/test/resources/yandexdriver.exe");

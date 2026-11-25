@@ -39,6 +39,21 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(saucesTab)).click();
     }
 
+    @Step("Проверить, что вкладка 'Булки' активна")
+    public boolean isBunsTabActive() {
+        return wait.until(ExpectedConditions.attributeContains(bunsTab, "class", "tab_tab_type_current"));
+    }
+
+    @Step("Проверить, что вкладка 'Соусы' активна")
+    public boolean isSaucesTabActive() {
+        return wait.until(ExpectedConditions.attributeContains(saucesTab, "class", "tab_tab_type_current"));
+    }
+
+    @Step("Проверить, что вкладка 'Начинки' активна")
+    public boolean isFillingsTabActive() {
+        return wait.until(ExpectedConditions.attributeContains(fillingsTab, "class", "tab_tab_type_current"));
+    }
+
     @Step("Переключиться на раздел 'Начинки'")
     public void clickFillingsTab() {
         wait.until(ExpectedConditions.elementToBeClickable(fillingsTab)).click();
