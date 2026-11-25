@@ -48,6 +48,14 @@ public class LoginPage {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(loginTitle)).isDisplayed();
     }
 
+    @Step("Полный цикл логина пользователя")
+    public void login(String email, String password)
+    {
+        setKeysToEmailInput(email);
+        setKeysToPasswordInput(password);
+        clickLoginButton();
+    }
+
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
